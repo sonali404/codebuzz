@@ -1,0 +1,28 @@
+#Find the largest three elements in an array
+def print3largest(arr,n):
+    largest= -1
+    seclargest = -1
+    thirlargest = -1
+    for i in range(n):
+        if arr[i]> largest:
+            thirlargest=seclargest
+            seclargest = largest
+            largest = arr[i] 
+            
+        elif arr[i]>seclargest and arr[i] != largest:
+            thirlargest = seclargest
+            seclargest = arr[i]
+            
+        elif arr[i]>thirlargest and arr[i] != seclargest:
+            thirlargest = arr[i]
+            
+    print(f"largest: {largest},2ndlargest: {seclargest} 3rdlargest: {thirlargest} ")
+            
+        
+    
+
+
+n = int(input("enter no of element you want to insert"))
+arr = list(map(int, input("enter value of array using a space").strip().split())) 
+print(arr)
+print3largest(arr,n)
