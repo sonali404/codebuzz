@@ -1,0 +1,29 @@
+"""
+@author: sonalis1
+"""
+
+#Move all zeroes to end of array
+def movezerostoend(arr,size):
+    if size <= 1:
+        print(arr)
+        return
+    start = 0
+    end = size-1
+    while(start< end):
+        if arr[end] == 0:
+            end = end - 1
+        elif arr[start] != 0:
+            start = start+1
+        else:
+            arr[start] = arr[end]
+            arr[end] = 0
+            end = end-1
+            start = start+1
+    print(arr)
+            
+        
+
+arr = list(map(int,input("enter the value of array ").strip().split()))
+print(arr)
+size = len(arr)
+movezerostoend(arr, size)
