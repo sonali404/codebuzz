@@ -1,0 +1,26 @@
+"""
+@author: sonalis1
+"""
+
+#Find Second largest element in an array
+def seclargest(arr,size):
+    if size < 2:
+        print("invalid values")
+        return
+    first = -1
+    second = -1
+    for i in range(size):
+        if arr[i]>first:
+            second = first
+            first = arr[i]
+        elif arr[i]>second and arr[i] != first:
+            second = arr[i]
+    if (second == -1):
+        print("no second largest value found ")
+    else:
+        print(f"second largest value is {second}")
+
+
+arr = list(map(int,input("enter the value of array ").strip().split()))
+size = len(arr)
+seclargest(arr,size)
