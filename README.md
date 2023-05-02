@@ -1,2 +1,2 @@
 # codebuzz
-all interview related question
+all interview related questions
