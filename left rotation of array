@@ -1,0 +1,65 @@
+#Print left rotation of array in O(n) time and O(1) space
+#Input : 
+#arr[] = {1, 3, 5, 7, 9}
+#k1 = 1
+#k2 = 3
+#k3 = 4
+#k4 = 6
+#Output : 
+#3 5 7 9 1
+#7 9 1 3 5
+#9 1 3 5 7
+#3 5 7 9 1
+#Solution 1:- 
+#------------------------
+def array_rotation(arr,d, size):
+   i=1
+   while(i<=d):
+       temp = arr[0]  
+       n = 1
+       while(n<=size):
+            arr[n-1] = arr[n]
+            n = n + 1
+       i = i+1
+       arr[size] = temp
+   return arr
+
+arr = list(map(int,input("enter the value of array").strip().split()))
+pos = int(input("enter the value from where you want to rotate"))
+d = pos % len(arr)
+arr = array_rotation(arr,d,len(arr)-1)
+
+print(arr)
+
+#Solution 2:- 
+#------------------------
+
+# Function for k times left rotation
+def leftRotate(arr, k):
+	# Reverse the first k elements
+	arr = reverseArray(arr, 0, k - 1)
+	# Reverse the remaining n-k elements
+	arr = reverseArray(arr, k, len(arr) - 1)
+	# Reverse the entire array
+	arr = reverseArray(arr, 0, len(arr) - 1)
+
+	# Print the rotated array from start position
+	print(" ".join(map(str,arr)))
+
+# Helper function to reverse a section of an array from start to end (inclusive)
+def reverseArray(arr, start, end):
+	while start < end:
+		temp = arr[start]
+		arr[start] = arr[end]
+		arr[end] = temp
+		start += 1
+		end -= 1
+	return arr
+
+# Driver code
+arr = [1, 3, 5, 7, 9]
+k = 2
+
+# Function Call
+leftRotate(arr, k)
+
